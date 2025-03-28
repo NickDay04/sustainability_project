@@ -1,0 +1,38 @@
+button {
+    width: 284px;
+    height: 33px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    background: #76885B;
+    border: none;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+
+    display: inline-flex;
+    color: white;
+    font-family: "Inter", sans-serif;
+}
+
+.fade-in{
+    animation: fadeInAnimation ease 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 2.5%;
+}

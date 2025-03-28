@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/social/view-post.css') }}">
+    <div class="vertical-container">
+        <div class="button-container">
+            <a href="/social/feed">
+                <button class="submit-button">Back to Feed</button>
+            </a>
+        </div>
+        <div class="block">
+            <h1 class="roboto-light-500">{{ post.title }}</h1>
+            <p class="roboto-light-300">{{ post.content }}</p>
+            <p class="roboto-light-300">This post has {{ number_of_comments }} comments. Join the conversation!</p>
+            <a href="/social/view/{{ post.id }}?add_like={{ post.id }}">
+                <button class="fa fa-thumbs-up">{{ post.likes_count }}</button>
+            </a>
+        </div>
+ 
+        {% for i in range(0, comments_len) %}
+        <div class="block comment">
+            <h2 class="roboto-light-500">{{comments[i][0]}}</h2>
+            <p class="roboto-light-300">{{ comments[i][1] }}</p>
+        </div>
+        {% endfor %}
+
+        <div class="new-comment block">
+        
+            {% if create_comment_form %}
+        
+            <form method="POST" class="form-container">
+                <div>
+                    {{ create_comment_form.csrf_token() }}
+                </div>
+                <div>
+                    <label for="comment_content" class="roboto-light-500">New Comment</label>
+                    <div class="form-item">
+                        {{ create_comment_form.commentContent(class="form-input") }}
+                        {% for error in create_comment_form.commentContent.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div>
+                    {{ create_comment_form.submit(class="submit-button") }}
+                </div>
+            </form>
+        
+            {% endif %}
+        
+        </div>
+
+    </div>
+{% endblock %}

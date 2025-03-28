@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<body class="search-page">
+    <div class="centre">
+        <div>
+            <h1>Search Results</h1>
+        </div>
+        <div>
+            {% if results %}
+                <ul class="results-list">
+
+                    {% for user in results %}
+                        {% if user.private=="0" %}
+                        <li class="result-item">
+                            <a href="{{ url_for('social.view_profile', user_id=user.id) }}">
+                                <p>{{ user.firstname }} {{ user.lastname }} ({{ user.username }})</p>
+                            </a>
+                        </li>
+                        {% endif %}
+
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No users found matching your query.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+{% endblock %}

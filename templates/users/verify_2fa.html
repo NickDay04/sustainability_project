@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/2fa.css') }}">
+
+{% if form %}
+
+    <form method="POST" class="form-container">
+        <div>
+            {{ form.csrf_token() }}
+        </div>
+        <label for="post_title" class="roboto-light-500 form-item">Enter your 2FA code:</label>
+        <div class="form-item">
+            {{ form.code(class="form-input") }}
+            {% for error in form.code.errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.submit(class="submit-button form-item") }}
+        </div>
+    </form>
+
+{% endif %}
+
+{% endblock %}

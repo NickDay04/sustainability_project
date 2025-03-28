@@ -1,0 +1,28 @@
+.submit-button {
+    width: 284px;
+    height: 33px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    background: #76885B;
+    border: none;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+
+    display: inline-flex;
+    color: white;
+    font-family: "Inter", sans-serif;
+    
+    transition: 0.3s;
+}
+
+.form-container{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.form-item{
+    margin: 0.5%;
+}

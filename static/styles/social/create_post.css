@@ -1,0 +1,37 @@
+.form-input {
+    width: 100%;
+    max-width: 425px;
+  
+    padding: 0.8em;
+    margin: 0.5%;
+    font-size: 0.9em;
+    font-family: "Source Sans Pro", sans-serif;
+  
+    outline: none;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    background: #f9f9f9;
+    transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.form-container{
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+button {
+    width: 284px;
+    height: 33px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    background: #76885B;
+    border: none;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+
+    display: inline-flex;
+    color: white;
+    font-family: "Inter", sans-serif;
+}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1 class="title is-1"><b>Error 503</b></h1>
+    <h3 class="subtitle is-3"><b>Service Unavailable</b></h3>
+    <p>The HyperText Transfer Protocol (HTTP) 503 server error response code indicates that the server is not ready to handle the request.</p>
+    <p>Click <u><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503" target="_blank">here</a></u> to learn more.</p>
+    <p>Return to <a href="{{ url_for('index.index') }}"><u>Home page</u></a></p>
+{% endblock %}

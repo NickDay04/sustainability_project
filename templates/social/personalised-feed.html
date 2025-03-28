@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Use an element to toggle between a like/dislike icon -->
+
+<div>
+    <a href="/social/create_post">
+        <button class="create-button">Create Post</button>
+    </a>
+    <a href="/social/view_profile/{{ current_user_id }}">
+        <button class="create-button">View Profile</button>
+    </a>
+</div>
+
+</div>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/social/personalised-feed.css') }}">
+<div class="feed-container">
+    {% for i in range(0, len) %}
+        <div class='block'>
+            <div class="header-container">
+                <p class="roboto-light-300">Posted by: {{ posts[i][1] }}</p>
+                <h1 class="roboto-light-500 title"><a href="{{ url_for('social.view', post_id=posts[i][5]) }}">{{ posts[i][0] }}</a></h1>
+                <p class="roboto-light-300">{{ posts[i][2] }}</p>
+            </div>
+            <p class="roboto-light-300 post-content">{{ posts[i][3] }}</p>
+            <a href="/social/feed?add_like={{ posts[i][5] }}">
+                <button class="fa fa-thumbs-up bottom">{{ posts[i][4] }}</button>
+            </a>
+            <p>This post has {{ posts[i][6] }} comments. Join the conversation!</p>
+        </div>
+    {%  endfor %}
+    
+</div>
+<div>
+
+
+{% endblock %}

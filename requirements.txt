@@ -1,0 +1,17 @@
+Flask~=3.0.3
+flask_sqlalchemy
+flask_login
+flask_wtf
+wtforms
+python-dotenv
+bokeh
+bcrypt
+email_validator
+pytest
+pymysql
+mysql-connector
+mysql-connector-python
+pyotp
+flask-qrcode
+pandas
+better_profanity

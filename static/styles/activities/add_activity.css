@@ -1,0 +1,78 @@
+.flex-container{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.flex-item{
+    padding: 5%;
+}
+
+.form-container{
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+.form-input {
+    width: 100%;
+    max-width: 425px;
+  
+    padding: 0.8em;
+    margin: 0.5%;
+    font-size: 0.9em;
+    font-family: "Source Sans Pro", sans-serif;
+  
+    outline: none;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    background: #f9f9f9;
+    transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.fade-in{
+    animation: fadeInAnimation ease 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.submit-button {
+    width: fit-content;
+    height: 33px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 4px;
+
+    background: #76885B;
+    border: none;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+
+    display: inline-flex;
+    color: white;
+    font-family: "Inter", sans-serif;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+    opacity: 1;
+}
+
+button:hover {
+    background-color: #8ebb4b;
+}
+
+button:focus {
+    border-style: dashed;
+    border-color: #8ebb4b;
+    border-radius: 10;
+}

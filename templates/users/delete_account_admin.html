@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/delete_account_admin.css') }}"/>
+<div class="centre">
+    <h1 class="roboto-light-500">Delete Account</h1>
+    <form method="POST" action="{{ url_for('users.deleteAccountAdmin') }}">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.username.label(class="roboto-light-500") }}<br>
+            {{ form.username(class="form-input", placeholder="Username") }}<br>
+            {% for error in form.username.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.submit(class="submit-button") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

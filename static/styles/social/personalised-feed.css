@@ -1,0 +1,66 @@
+a, button {
+  color: black;
+  text-decoration: inherit;
+}
+
+.feed-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 5%;
+  margin-right: auto;
+  
+}
+
+.block {
+  background-color: #76885B;
+  width: 35%;
+  border-radius: 8px;
+  height: auto;
+  position: relative;
+  box-shadow: 100px;
+  margin-top: 2%;
+  padding: 0.5%;
+  padding-top: 0;
+}
+
+.header-container{
+  display: flex;
+  justify-content: space-around;
+}
+.header-container p{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.post-content{
+  margin-bottom: auto;
+  margin-top: auto;
+  margin-left: 2.5%;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+} 
+
+.create-button {
+  width: 284px;
+  height: 33px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  background: #76885B;
+  border: none;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+
+  display: inline-flex;
+  color: black;
+  font-family: "Inter", sans-serif;
+  
+  margin-left: 5%;
+  margin-top: 1%;
+}

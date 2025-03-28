@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/activities/activity_analysis.css') }}">
+
+<div class="container">
+    <a href="/activities/activity_analysis?time_frame=7">
+        <button>7 Days</button>
+    </a>
+    <a href="/activities/activity_analysis?time_frame=14">
+        <button>14 Days</button>
+    </a>
+    <a href="/activities/activity_analysis?time_frame=30">
+        <button>1 Month</button>
+    </a>
+    <a href="/activities/activity_analysis?time_frame=90">
+        <button>3 Months</button>
+    </a>
+    <a href="/activities/activity_analysis?time_frame=180">
+        <button>6 Months</button>
+    </a>
+    <a href="/activities/activity_analysis?time_frame=365">
+        <button>1 Year</button>
+    </a>
+</div>
+
+<div class='block {{ "red" if motor_result >= 120 }} {{ "orange" if 80 < motor_result < 120 }} {{ "green" if motor_result <= 80 }}'>
+    <h1 class="roboto-light-500">Cars, Vans, Motorbikes</h1>
+    {% if motor_result <= 80 %}
+        <p class="roboto-light-300">Congrats! You are far below the average person in this department, there is nothing you can improve!!</p>
+    {% elif motor_result >= 120 %}
+        <p class="roboto-light-300">Wow, you must drive everywhere! Have you tried taking public transport instead?</p>
+    {% else %}
+        <p class="roboto-light-300">You are about the average carbon emissions in this department. There is always more you could do though! Maybe try riding a bike to work?</p>
+    {% endif %}
+    <p class="roboto-light-300">Your emissions are {{ motor_result }}% of the UK national average.</p>
+</div>
+<div class='block {{ "red" if flight_result >= 120 }} {{ "orange" if 80 < flight_result < 120 }} {{ "green" if flight_result <= 80 }}'>
+    <h1 class="roboto-light-500">Flights</h1>
+    {% if flight_result <= 80 %}
+        <p class="roboto-light-300">Congrats! You are extremely carbon efficient when it comes to flights, there is nothing you can improve!!</p>
+    {% elif flight_result >= 120 %}
+        <p class="roboto-light-300">Wow, you must go on a lot of holidays!! There are trains that connect countries, have you tried taking the scenic route?</p>
+    {% else %}
+        <p class="roboto-light-300">You are about the average carbon emissions in this department. There is always more you could do though! Maybe take the eurostar on your next holiday?</p>
+    {% endif %}
+    <p class="roboto-light-300">Your emissions are {{ flight_result }}% of the UK national average.</p>
+</div>
+<div class='block {{ "red" if food_result >= 120 }} {{ "orange" if 80 < food_result < 120 }} {{ "green" if food_result <= 80 }}'>
+    <h1 class="roboto-light-500">Food</h1>
+    {% if food_result <= 80 %}
+        <p class="roboto-light-300">Congrats! Someone must be eating local, there is nothing you can improve!!</p>
+    {% elif food_result >= 120 %}
+        <p class="roboto-light-300">Wow, you are really exceeding the average in this department. Vegetables are far better for the environment than meats like beef, you could try that?</p>
+    {% else %}
+        <p class="roboto-light-300">You are about the average carbon emissions in this department. There is always more you could do though! Local produce supports farmers in your area AND it's better for the environment!</p>
+    {% endif %}
+    <p class="roboto-light-300">Your emissions are {{ food_result }}% of the UK national average.</p>
+</div>
+
+{% endblock %}

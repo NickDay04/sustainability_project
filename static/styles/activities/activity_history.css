@@ -1,0 +1,86 @@
+table, th, td {
+    padding: 15px;
+    text-align: left;
+
+    border: 1px solid;
+    border-radius: 5px;
+    background: #76885B;
+    color: #DDDDDD;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 60%;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tab-button {
+    width: 300px;
+    height: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    border: none;
+    justify-content: center;
+    align-items: center;
+
+    display: inline-flex;
+    color: black;
+    font-family: "Inter", sans-serif;
+}
+
+.active-button{
+    background: #76885b;
+}
+
+.container{
+    display: flex;
+    padding: 1%;
+    background: #76885B;
+}
+
+.vertical-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.date-button {
+    width: 284px;
+    height: 33px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: 20px;
+
+    background: white;
+    border: none;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+
+    display: inline-flex;
+    color: black;
+    font-family: "Inter", sans-serif;
+}
+
+button {
+    width: 284px;
+    height: 33px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    background: #76885B;
+    border: none;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+
+    display: inline-flex;
+    color: white;
+    font-family: "Inter", sans-serif;
+}

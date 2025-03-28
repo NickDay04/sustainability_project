@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/base.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/register.css') }}"/>
+    <title>Account Settings</title>
+</head>
+{% extends "base.html" %}
+{% block content %}
+<body>
+
+    <div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages-success fade-in roboto-light-300">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <div class="centre-a">
+        <div>
+            <h1 class="roboto-light-500">— Account Settings —</h1>
+        </div>
+    <div>
+        <p>
+            {{ current_user.username }}
+        </p>
+    </div>
+        <div>
+            <a class="roboto-light-300">— Change your own username to something else —</a>
+            <br>
+            <a href="/change_username"><button class="submit-button-r" style="margin: 10px;"><i class="fa-solid fa-signature"></i>&nbsp; Change Username</button></a>
+
+            <br>
+            <a class="roboto-light-300">— Change your own password —</a>
+            <br>
+            <a href="/change_password"><button class="submit-button-r" style="margin: 10px;"><i class="fa-solid fa-key"></i>&nbsp; Change Password</button></a>
+
+            <br>
+            <a class="roboto-light-300">— Delete your account permanently —</a>
+            <br>
+            <a href="/delete_account"><button class="submit-button-r" style="margin: 10px; background-color: brown;"><i class="fa-solid fa-user-minus"></i>&nbsp; Delete Account</button></a>
+
+            <br>
+            <a class="roboto-light-300">— View and Update your privacy settings —</a>
+            <br>
+            <br>
+            <a href="/privacy_settings"><button class="submit-button-r"><i class="fa-solid fa-shield-halved"></i>&nbsp; Privacy Settings</button></a>
+
+            {% if current_user.is_authenticated and current_user.role == 'admin' %}
+              <br>
+              <a class="roboto-light-300">— Admin: Delete a user's account —</a>
+              <br>
+              <a href="/delete_account_admin"><button class="submit-button-r" style="margin: 10px; background-color: red;"><i class="fa-solid fa-user-slash"></i>&nbsp; [Admin] Delete an Account</button></a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

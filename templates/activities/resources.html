@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/activities/resources.css') }}">
+
+<div class="block">
+    <h1 class="roboto-light-500">Cars, Vans, and Motorbikes</h1>
+    <p class="roboto-light-300">We get our data for your car's carbon emissions from the widely used and reliable source <a href="https://www.carbonfootprint.com/">Carbon Footprint</a>.</p>
+    <p class="roboto-light-300">This resource is references multiple large scale companies that use their services.</p>
+</div>
+<div class="block">
+    <h1 class="roboto-light-500">Flights</h1>
+    <p class="roboto-light-300">We allow you to select from a list of the <a href="https://gettocenter.com/airports/top-100-airports-in-world/1000">top 1000 airports</a> in the world ranked by annual traffic.</p>
+    <p class="roboto-light-300">We calculate the distance between the two chosen airports by using the <a href="https://en.wikipedia.org/wiki/Haversine_formula">Haversine Formula</a> using the <a href="https://www.partow.net/miscellaneous/airportdatabase/">logitude and latitude</a> coordinates of the chosen airports.</p>
+    <p class="roboto-light-300">Finally, we calculate the carbon emissions by multiplying by the <a href="https://connectedfleet.michelin.com/blog/calculate-co2-emissions/">average carbon emissions of short haul vs long haul flights</a>.</p>
+</div>
+<div class="block">
+    <h1 class="roboto-light-500">Food</h1>
+    <p class="roboto-light-300">We used a list of <a href="https://www.kaggle.com/datasets/selfvivek/environment-impact-of-food-production?resource=download">foods that have a large impact on carbon emissions</a>. We discarded low emission foods from the dataset.</p>
+    <p class="roboto-light-300">It is important to note that our list of food is non-exhaustive list of high-emission foods.</p>
+</div>
+
+{% endblock %}

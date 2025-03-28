@@ -1,0 +1,59 @@
+body {
+    background-color: #DDDDDD;
+    align-content: center;
+}
+
+button {
+    width: 284px;
+    height: 33px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    background: #76885B;
+    border: none;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+
+    display: inline-flex;
+    color: white;
+    font-family: "Inter", sans-serif;
+    
+    transition: 0.3s;
+}
+
+.divider {
+    font-family: "Inter", sans-serif;
+    font-weight: lighter;
+    font-size: 15px;
+    align-content: center;
+}
+
+.canvas {
+    background-color: #e8e8e8;
+    width: 40%;
+    padding: 10px;
+}
+
+.title-header-1{
+    text-align: center;
+}
+
+.title-header-2{
+    text-align: center;
+}
+
+.body-text{
+    text-align: center;
+}
+
+.home-image{
+   padding: 5%;
+   padding-top: 15%;
+}
+
+.vertical-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}

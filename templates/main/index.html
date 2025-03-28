@@ -1,0 +1,75 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/base.css') }}"/>
+    <title>Alder Emissions Tracker</title>
+</head>
+
+<body>
+    <!-- SRC: https://codepen.io/Mark_Bowley/pen/LYZEBq AUTHOR: @Mark_Bowley  -->
+    <div id="background-wrap">
+        <div class="x1">
+            <div class="cloud"></div>
+        </div>
+    
+        <div class="x2">
+            <div class="cloud"></div>
+        </div>
+    
+        <div class="x3">
+            <div class="cloud"></div>
+        </div>
+    
+        <div class="x4">
+            <div class="cloud"></div>
+        </div>
+    
+        <div class="x5">
+            <div class="cloud"></div>
+        </div>
+    </div>
+    <!-- //// -->
+
+    {% if current_user.is_anonymous %}
+    <div class="card">
+        <div class="home-image">
+            <img src="{{ url_for('static', filename='images/home-page-logo.png') }}" alt="Logo">
+            <h1 class="roboto-light-500 title-header-1"><b>Welcome to</b> Alder!</h1>
+        </div>
+        <div>
+            <h2 class="roboto-light-500 title-header-2">Please log-in or Register.</h2>
+            <div class="home-body" style="align-items: center">
+                <a href="/login">
+                    <button>Login</button>
+                </a>
+                <p class="roboto-light-300" id="ortext">— OR —</p>
+                <a href="/register">
+                    <button>Register</button>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+    {% endif %}
+    {% if current_user.is_authenticated %}
+    <div class="container">
+        <div class="home-image">
+            <img src="{{ url_for('static', filename='images/home-page-logo.png') }}" alt="Logo">
+            <h1 class="roboto-light-500 title-header-1"><b>Welcome to</b> Alder!</h1>
+        </div>
+        <div class="vertical-container">
+            <a href="/activities">
+                <button>Activities</button>
+            </a>
+            <a href="/account">
+                <button>Account</button>
+            </a>
+            <a href="/social/feed">
+                <button>Social Media</button>
+            </a>
+            <a href="/logout">
+                <button>Logout</button>
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</body>

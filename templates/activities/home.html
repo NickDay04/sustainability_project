@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/activities/home.css') }}"/>
+
+<h1 class="title roboto-light-500">Activities home page</h1>
+
+<div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages-success fade-in roboto-light-300">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
+
+<div class="container">
+    <a href="/activities/add_activity">
+        <button><i class="fa-solid fa-plus"></i>&nbsp; Add Activity</button>
+    </a>
+    <a href="/activities/activity_history?active=graph">
+        <button><i class="fa-solid fa-clock-rotate-left"></i>&nbsp; View Activity History</button>
+    </a>
+</div>
+<div class="container">
+    <a href="/activities/resources">
+        <button><i class="fa-solid fa-sitemap"></i>&nbsp; Resources</button>
+    </a>
+    <a href="/activities/activity_analysis?time_frame=7">
+        <button><i class="fa-solid fa-chart-pie"></i>&nbsp; Activity Analysis</button>
+    </a>
+</div>
+
+{% endblock %}

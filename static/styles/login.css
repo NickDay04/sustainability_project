@@ -1,0 +1,71 @@
+/* Existing styles */
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+    padding-left: 5vw;
+}
+
+.special-input, .submit-button {
+  /* TODO: merge made here */
+    height: 6vh;
+    margin-bottom: 3vh;
+    border-radius: 10px;
+}
+
+.special-input {
+  /* TODO: merge made here */
+    outline-color: #dddddd;
+    background-color: #ffffff;
+    border: 2px solid #76885B;
+    width: 568px;
+}
+
+.centre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.submit-button {
+  /* TODO: merge made here */
+    width: 284px;
+    height: 33px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    background: #76885B;
+    border: none;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+
+    display: inline-flex;
+    color: white;
+    font-family: "Inter", sans-serif;
+}
+
+/* Flash message styles */
+.flash-messages-warn {
+    position: fixed;
+    top: 72%;
+    left: 52.5%;
+    transform: translate(-50%, 0) scale(1.65);
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="roboto-light-500">Setup 2FA</h1>
+<p class="roboto-light-300">To set up 2 factor authentication under the account name {{ username }}, scan the following QR code with your smartphone's authenticator app:</p>
+<p><img src="{{ qrcode(uri, box_size=5, border=5) }}"></p>
+<p class="roboto-light-300">Once set up, please click <a href="{{ url_for('index.index') }}">here</a>.</p>
+
+{% endblock %}

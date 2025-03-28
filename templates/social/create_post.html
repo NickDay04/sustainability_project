@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/social/create_post.css') }}">
+
+<div class="vertical-container">
+
+    {% if create_post_form %}
+
+    <form method="POST" class="form-container">
+        <div>
+            {{ create_post_form.csrf_token() }}
+        </div>
+        <div>
+            <label for="post_title" class="roboto-light-500">Post Title</label>
+            <div class="form-item">
+                {{ create_post_form.postTitle(class="form-input") }}
+                {% for error in create_post_form.postTitle.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <label for="post-content" class="roboto-light-500">Post Content</label>
+            <div class="form-item">
+                {{ create_post_form.postContent(class="form-input") }}
+                {% for error in create_post_form.postContent.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            {{ create_post_form.submit(class="submit-button") }}
+        </div>
+    </form>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

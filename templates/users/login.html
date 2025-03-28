@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/base.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/login.css') }}"/>
+
+    <title>Login</title>
+</head>
+{% extends "base.html" %}
+{% block content %}
+<body>
+
+    <div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages-warn fade-in roboto-light-300">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    {% if form %}
+        <div class="home-body" style="align-items: center; margin-top:10px;">
+            <form method="POST">
+                <div class="home-body column" style="align-items: center">
+                    <div>
+                        {{ form.csrf_token() }}
+                    </div>
+                    <!-- this is a div containing all input fields -->
+
+                    <h2 class="roboto-light-500">— <i class="fa-solid fa-right-to-bracket"></i>&nbsp; Log-In —</h2>
+                    <h1 class="roboto-light-300">Please enter your email and password to log-In.</h1>
+
+                    <div>
+                        {{ form.email(class="special-input left-stack-input", placeholder="Email") }}
+                    </div>
+                    <div>
+                        {{ form.password(class="special-input left-stack-input", placeholder="Password") }}
+                    </div>
+                    <div>
+                        {{ form.submit(class="submit-button left-stack-input") }}
+                    </div>
+                    <div>
+
+                        <a class="tinynote roboto-light-300">Forgot your password?</a>
+                        <br>
+                        <a href="/change_password">
+                            <button class="submit-button left-stack-input" href="">Change Password</button>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    {% endif %}
+</body>
+{% endblock %}

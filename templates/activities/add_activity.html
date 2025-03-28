@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/activities/add_activity.css') }}">
+<script src="{{ url_for('static', filename='js/slider.js') }}"></script>
+
+<h1 class="title roboto-light-500 ">ADD ACTIVITY</h1>
+
+<div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages-warn fade-in">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
+
+<div class="flex-container">
+
+    <div class='{{ "flex-item" if activity_form }} {{ "fade-in" if fade_in == "activity_form" }}'>
+        
+        {% if activity_form %}
+    
+        <form method="POST" class="form-container">
+            <div>
+                <label for="activity" class="roboto-light-500"><i class="fa-solid fa-chart-line"></i> Activity</label>
+                <div class="form-item">
+                    {{ activity_form.activity(class="form-input", placeholder="Activity") }}
+                    {% for error in activity_form.activity.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            </div>
+            {% if fade_in == "activity_form" %}
+                <div>
+                    {{ activity_form.submit(class="submit-button") }}
+                </div>
+            {% endif %}
+        </form>
+    
+        {% endif %}
+    
+    </div>
+
+    <div class='{{ "flex-item" if fuel_form }} {{ "fade-in" if fade_in == "fuel_form" }}'>
+
+        {% if fuel_form %}
+
+        <form method="POST" class="form-container">
+            <label for="fuel_type" class="roboto-light-500"><i class="fa-solid fa-gas-pump"></i> Fuel Type</label>
+            <div class="form-item">
+                {{ fuel_form.fuelType(class="form-input") }}
+                {% for error in fuel_form.fuelType.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            {% if fade_in == "fuel_form" %}
+                <div>
+                    {{ fuel_form.submit(class="submit-button") }}
+                </div>
+            {% endif %}
+        </form>
+
+        {% endif %}
+
+    </div>
+
+    <div class='{{ "flex-item" if car_size_form }} {{ "fade-in" if fade_in == "car_size_form" }}'>
+        {% if car_size_form %}
+
+        <form method="POST" class="form-container">
+            <label for="car_size" class="roboto-light-500"><i class="fa-solid fa-car"></i> Car Size</label>
+            <div class="form-item">
+                {{ car_size_form.carSize(class="form-input") }}
+                {% for error in car_size_form.carSize.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            {% if fade_in == "car_size_form" %}
+                <div>
+                    {{ car_size_form.submit(class="submit-button") }}
+                </div>
+            {% endif %}
+            <p class="roboto-light-300">Small (<1.7 litre) </p>
+            <p class="roboto-light-300">Medium (1.7-2.0 litre) </p>
+            <p class="roboto-light-300">Large (>2.0 litre) </p>
+        </form>
+        {% endif %}
+    </div>
+
+    <div class='{{ "flex-item" if motorbike_size_form }} {{ "fade-in" if fade_in == "motorbike_size_form" }}'>
+        {% if motorbike_size_form %}
+
+        <form method="POST" class="form-container">
+            <label for="motorbike_size" class="roboto-light-500"><i class="fa-solid fa-motorcycle"></i> Motorbike Size</label>
+            <div class="form-item">
+                {{ motorbike_size_form.motorbikeSize(class="form-input") }}
+                {% for error in motorbike_size_form.motorbikeSize.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            {% if fade_in == "motorbike_size_form" %}
+                <div>
+                    {{ motorbike_size_form.submit(class="submit-button") }}
+                </div>
+            {% endif %}
+            <p class="roboto-light-300">Small (<125cc) </p>
+            <p class="roboto-light-300">Medium (125-500cc) </p>
+            <p class="roboto-light-300">Large (>500cc) </p>
+        </form>
+        {% endif %}
+    </div>
+
+    <div class='{{ "flex-item" if van_size_form }} {{ "fade-in" if fade_in == "van_size_form" }}'>
+        {% if van_size_form %}
+
+        <form method="POST" class="form-container">
+            <label for="van_size" class="roboto-light-500"><i class="fa-solid fa-van-shuttle"></i> Van Size</label>
+            <div class="form-item">
+                {{ van_size_form.vanSize(class="form-input") }}
+                {% for error in van_size_form.vanSize.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            {% if fade_in == "van_size_form" %}
+                <div>
+                    {{ van_size_form.submit(class="submit-button") }}
+                </div>
+            {% endif %}
+            <p class="roboto-light-300">Small (<1.305 tonnes) </p>
+            <p class="roboto-light-300">Medium (1.305-1.74 tonnes) </p>
+            <p class="roboto-light-300">Large (>1.74 tonnes) </p>
+        </form>
+        {% endif %}
+    </div>
+
+    <div class='{{ "flex-item" if flight_form }} {{ "fade-in" if fade_in == "flight_form" }}'>
+        {% if flight_form %}
+        <form method="POST" class="form-container">
+            <label for="start_airport" class="roboto-light-500"><i class="fa-solid fa-plane-departure"></i> Departure Airport</label>
+            <div class="form-item">
+                {{ flight_form.startAirport(class="form-input") }}
+                {% for error in flight_form.startAirport.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            <label for="end_airport" class="roboto-light-500"><i class="fa-solid fa-plane-arrival"></i> Landing Airport</label>
+            <div class="form-item">
+                {{ flight_form.endAirport(class="form-input") }}
+                {% for error in flight_form.endAirport.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            {% if fade_in == "flight_form" %}
+                <div>
+                    {{ flight_form.submit(class="submit-button") }}
+                </div>
+            {% endif %}
+        </form>
+        {% endif %}
+    </div>
+
+    <div class='{{ "flex-item" if food_form }} {{ "fade-in" if fade_in == "food_form" }}'>
+        {% if food_form %}
+
+        <form method="POST" class="form-container">
+            <label for="food_choice" class="roboto-light-500">Please Select your Food</label>
+            <div class="form-item">
+                {{ food_form.foodChoice(class="form-input") }}
+                {% for error in food_form.foodChoice.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            {% if fade_in == "food_form" %}
+                <div>
+                    {{ food_form.submit(class="submit-button") }}
+                </div>
+            {% endif %}
+        </form>
+        {% endif %}
+    </div>
+
+    <div class='{{ "flex-item" if food_quantity_form }} {{ "fade-in" if fade_in == "food_quantity_form" }}'>
+        {% if food_quantity_form %}
+
+        <form method="POST" class="form-container">
+            <label for="food_quantity" class="roboto-light-500">Weight of food in grams</label>
+            <div class="form-item">
+                {{ food_quantity_form.foodQuantity(class="form-input") }}
+                {% for error in food_quantity_form.foodQuantity.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            {% if fade_in == "food_quantity_form" %}
+                <div>
+                    {{ food_quantity_form.submit(class="submit-button") }}
+                </div>
+            {% endif %}
+        </form>
+        {% endif %}
+    </div>
+    
+    <div class='{{ "flex-item" if distance_travelled_form }} {{ "fade-in" if fade_in == "distance_travelled_form" }}'>
+
+        {% if distance_travelled_form %}
+
+        <form method="POST" class="form-container">
+            <div>
+                <label for="distance_travelled" class="roboto-light-500"><i class="fa-solid fa-ruler-horizontal"></i> How many kilometers did you drive?</label>
+                <div class="form-item">
+                    {{ distance_travelled_form.distanceTravelled(class="form-input", onchange="onSliderChange()") }}
+                    {% for error in distance_travelled_form.distanceTravelled.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ distance_travelled_form.distanceTravelledOutput(class="form-input") }}
+                </div>
+            </div>
+            {% if fade_in == "distance_travelled_form" %}
+                <div>
+                    {{ distance_travelled_form.submit(class="submit-button") }}
+                </div>
+            {% endif %}
+        </form>
+
+        {% endif %}
+
+    </div>
+    
+    <div class='{{ "flex-item" if activity_date_form }} {{ "fade-in" if fade_in == "activity_date_form" }}'>
+    
+        {% if activity_date_form %}
+    
+        <form method="POST" class="form-container">
+            <div>
+                <label for="date" class="roboto-light-500"><i class="fa-solid fa-calendar-days"></i> Date</label>
+                <div class="form-item">
+                    {{ activity_date_form.activityDate(class="form-input") }}
+                    {% for error in activity_date_form.activityDate.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            </div>
+            {% if fade_in == "activity_date_form" %}
+                <div>
+                    {{ activity_date_form.submit(class="submit-button") }}
+                </div>
+            {% endif %}
+        </form>
+    
+        {% endif %}
+    
+    </div>
+
+</div>
+
+
+
+{% endblock %}

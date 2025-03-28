@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/social/view-profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/social/personalised-feed.css') }}">
+    <div>
+    <div class="feed-container">
+        <div>
+            <a href="/social/feed">
+                <button class="button">Back to Feed</button>
+            </a>
+        </div>
+        <div class="feed-column">
+            <h1>{{ query_user.firstname }} {{ query_user.lastname }}</h1>
+            <p>@{{ query_user.username }}</p>
+        </div>
+            <div>
+                {% if existing_friendship %}
+                    <a href="{{ url_for('social.remove_friends', user_id=user_id) }}">
+                        <button class="button">Unfollow</button>
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('social.add_friends', user_id=user_id) }}">
+                        <button class="button">Follow</button>
+                    </a>
+                {% endif %}
+            </div>
+    </div>
+
+    <div class="feed-container">
+        {% for i in range(0, len) %}
+            <div class='block'>
+                <div class="header-container">
+                    <p class="roboto-light-300">Posted by: {{ posts[i][1] }}</p>
+                    <h1 class="roboto-light-500 title"><a href="{{ url_for('social.view', post_id=posts[i][5]) }}">{{ posts[i][0] }}</a></h1>
+                    <p class="roboto-light-300">{{ posts[i][2] }}</p>
+                </div>
+                <p class="roboto-light-300 post-content">{{ posts[i][3] }}</p>
+                <a href="/social/view_profile/{{ user_id }}?add_like={{ posts[i][5] }}">
+                    <button class="fa fa-thumbs-up bottom">{{ posts[i][4] }}</button>
+                </a>
+                <p>This post has {{ posts[i][6] }} comments. Join the conversation!</p>
+            </div>
+        {%  endfor %}
+    </div>
+    </div>
+
+{% endblock %}

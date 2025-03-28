@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Username</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/base.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/register.css') }}"/>
+</head>
+{% extends "base.html" %}
+{% block content %}
+<body>
+<div>
+    <div class="top-right">
+        <h1 style="font-size:50px">Change Username</h1>
+    </div>
+    <form method="POST">
+        <div>
+            <div>
+                {{ form.csrf_token() }}
+            </div>
+            <div>
+                {{ form.newUsername(class="input special-input-r", placeholder="New Username") }}
+                {% for error in form.newUsername.errors %}
+                        <span style="color: red;">{{ error }}</span>
+    {% endfor %}
+            </div>
+            <div>
+                {{ form.confirmNewUsername(class="input special-input-r", placeholder="Confirm New Username") }}
+                {% for error in form.confirmNewUsername.errors %}
+                        <span style="color: red;">{{ error }}</span>
+    {% endfor %}
+            </div>
+            <div>
+                {{ form.submit(class="submit-button-r") }}
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
+{% endblock %}

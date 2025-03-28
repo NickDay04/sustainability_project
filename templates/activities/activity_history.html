@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{{ js_resources|safe }}
+{{ css_resources|safe }}
+{{ script|safe }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/activities/activity_history.css') }}">
+
+<body>
+    <h1 class="roboto-light-500 title">ACTIVITY HISTORY</h1>
+    <div class="button-container">
+        <a href="/activities/activity_history?active=graph&timeframe=1m">
+            <button class='{{ "active-button" if request.args.get("active") == "graph" }} tab-button'>Graph</button>
+        </a>
+        <a href="/activities/activity_history?active=table">
+            <button class='{{ "active-button" if request.args.get("active") == "table" }} tab-button'>Table</button>
+        </a>
+    </div>
+    {% if request.args.get("active") == "table" %}
+        <div class="title roboto-light-500 background">
+            {% if activities_len > 0 %}
+            <table class="table">
+                    <tr>
+                        <th style="width: 40%">Date</th>
+                        <th style="width: 30%">Type</th>
+                        <th style="width: 30%">Quantity</th>
+                    </tr>
+                {% for activity in activities %}
+                    <tr>
+                        <td style="width: 40%">{{ activity.date }}</td>
+                        <td style="width: 30%">{{ activity.activity_type }}</td>
+                        <td style="width: 30%">{{ activity.carbon_emission }} kg of CO₂</td>
+                    </tr>
+                {% endfor %}
+            </table>
+                <p>Total Emission Footprint: {{ total_footprint }} CO₂/kg</p>
+            {% else %}
+                <p class="roboto-light-300">Your activity history is empty, press the following button to add new activities to your record.</p>
+                <a class="alderbutton" href="/activities/add_activity">
+                    <button>Add Activity</button>
+                </a>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if request.args.get("active") == "graph" %}
+    <div class="container background">
+        {{ div|safe }}
+        <div class="vertical-container">
+            <a href="/activities/activity_history?active=graph&timeframe=7d">
+                <button class="date-button">7  days</button>
+            </a>
+            <a href="/activities/activity_history?active=graph&timeframe=14d">
+                <button class="date-button">14 days</button>
+            </a>
+            <a href="/activities/activity_history?active=graph&timeframe=1m">
+                <button class="date-button">1  month</button>
+                </a>
+            <a href="/activities/activity_history?active=graph&timeframe=3m">
+                <button class="date-button">3  months</button>
+            </a>
+            <a href="/activities/activity_history?active=graph&timeframe=6m">
+                <button class="date-button">6  months</button>
+            </a>
+            <a href="/activities/activity_history?active=graph&timeframe=1y">
+                <button class="date-button">1  year</button>
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</body>
+
+{% endblock %}
