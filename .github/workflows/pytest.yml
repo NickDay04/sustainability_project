@@ -46,7 +46,7 @@ jobs:
     - name: Setup MySQL Database
       run: |
         docker pull mysql/mysql-server:latest
-        docker run --name alder_db -p 3306:3306 -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=root -d mysql/mysql-server
+        docker run --name sustain_proj -p 3306:3306 -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=root -d mysql/mysql-server
         python create_db.py
     - name: Test with pytest
       run: |

@@ -55,7 +55,7 @@ class User(db.Model, UserMixin):
     def get_2fa_uri(self):
         return str(pyotp.totp.TOTP(self.pin_key).provisioning_uri(
             name=self.username,
-            issuer_name="Alder Carbon Tracker"
+            issuer_name="Carbon Tracker"
         ))
 
 
